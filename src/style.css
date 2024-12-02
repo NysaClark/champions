@@ -1,0 +1,380 @@
+/* GENERAL STYLES */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #f6f8fc;
+  overflow-x: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 1.5rem;
+}
+
+.left {
+  width: 55%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.right {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 5.5rem;
+}
+
+/* LOADING */
+.loading {
+  background-color: #ffffff;
+  overflow: hidden;
+  z-index: 100;
+
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  /* transition: all 2s cubic-bezier(0, 1, 0.5, 1); */
+  transition: all 1s ease;
+}
+
+.loading.closed {
+  top: -100vh;
+}
+
+/* SEARCH */
+.searchBar {
+  margin-top: 2rem;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0px 10px 20px #adadad7b;
+
+  border-radius: 20px;
+
+  display: flex;
+  align-items: center;
+
+  padding-right: 1.5rem;
+}
+
+.searchBar input {
+  border: 0px;
+  height: 100%;
+
+  width: 100%;
+  font-size: 1.1rem;
+  border-radius: 20px;
+  outline: 0;
+
+  padding: 1.5rem;
+}
+
+.searchBar input::placeholder {
+  font-size: 1.1rem;
+}
+
+.searchBar .search {
+  width: fit-content;
+  background-color: #ce984b;
+  padding: 0.5rem 0.6rem;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px #adadad7b;
+
+  transform: scale(1.1);
+  transition: all 0.4s ease;
+}
+
+.searchBar .search:hover {
+  cursor: pointer;
+  transform: scale(0.95);
+  box-shadow: 0px 10px 20px #60606086;
+}
+
+.search svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  color: white;
+}
+
+/* CHAMPIONS */
+.champList {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 4rem 0;
+  row-gap: 4rem;
+}
+
+.champion {
+  /* width: 31%; */
+  background-color: #ffffff;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 10px 20px #adadad7b;
+  font-weight: bold;
+
+  border: 2px #ffffff solid;
+  /* padding: .5rem; */
+  min-width: 250px;
+
+  transition: all 0.4s ease;
+}
+
+.champion img {
+  width: 75px;
+  margin-top: -40px;
+  transition: all 0.4s ease;
+  box-shadow: 0px 10px 20px #adadad7b;
+}
+
+.champion:hover {
+  border: 2px #adadad7b solid;
+  cursor: pointer;
+}
+
+.champion:hover img {
+  transform: scale(1.15);
+  box-shadow: 0px 10px 20px #60606086;
+}
+
+.id {
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  color: #848484;
+}
+
+.name {
+  margin: 0.5rem 0;
+}
+
+.champion .name {
+  font-size: 1.2rem;
+}
+
+.tags {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.tags div {
+  /* color: white; */
+  background-color: #848484;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 0.9rem;
+  margin: 0.5rem 0 1rem;
+  font-weight: bold;
+}
+
+.tags .Fighter {
+  background-color: #ac0209;
+  color: #feaeb1;
+}
+.tags .Tank {
+  background-color: #395c35;
+  color: #c8e1c6;
+}
+.tags .Mage {
+  background-color: #5a4a86;
+  color: #d1cae2;
+}
+.tags .Assassin {
+  color: #ced0e7;
+  background-color: #2e3735;
+}
+.tags .Marksman {
+  background-color: #dc9a37;
+  color: #f9ddb4;
+}
+.tags .Support {
+  background-color: #070e60;
+  color: #c6cbfa;
+}
+
+/* CHAMPION DETAILS */
+.preview,
+.details {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  top: 5rem;
+
+  height: 590px;
+  width: 360px;
+
+  background-color: #ffff;
+  box-shadow: 0px 10px 20px #adadad7b;
+  border-radius: 20px;
+  padding: 1rem;
+}
+.preview {
+  justify-content: center;
+  transition: transform 0.5s ease-out;
+}
+
+.preview p {
+  align-self: center;
+  color: #848484;
+  width: 50%;
+  text-align: center;
+  font-size: 1.2rem;
+}
+.preview.hide {
+  transform: translateX(40vw);
+}
+
+.details {
+  transform: translateX(40vw);
+  transition: all 0.4s ease-in;
+  padding-top: 3rem;
+}
+
+.details.show {
+  transform: translateX(0);
+  transition: all 0.3s ease-out;
+}
+
+.details.show.delay {
+  transition-delay: 0.7s;
+}
+
+.preview .icon,
+.details .icon {
+  position: absolute;
+  top: 0;
+  width: 100px;
+  margin-top: -50px;
+}
+
+.details h4 {
+  font-size: 1.1rem;
+  color: #292d3f;
+}
+
+.id {
+  font-weight: bold;
+}
+.title {
+  color: #292d3f;
+  padding-bottom: 0.5rem;
+}
+.bio {
+  text-align: center;
+  width: 90%;
+}
+
+.bio p {
+  padding: 0.5rem 0 1rem;
+  color: #636363;
+}
+
+
+.ratings{
+  padding: 0.5rem 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  width: 100%;
+}
+
+.ratings h5{
+font-size: 1rem;
+color: #292d3f;
+}
+
+.ratings p{
+  background-color: #f0f3f9;
+  border-radius: 20px;
+  padding-top: .3rem;
+  padding-bottom: .3rem;
+  margin: .5rem .2rem;
+}
+
+
+
+.stats {
+  display: grid;
+  width: 90%;
+  grid-template-columns: repeat(6, 1fr);
+  margin: 0 auto;
+  padding: .5rem;
+  gap: 5px;
+}
+
+.stat {
+  background: #f0f3f9;
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  padding:6px 5px 8px;
+  border-radius: 30px;
+  flex-direction: column;
+  height: 70px;
+  font-weight: bolder;
+  text-align: center;
+  font-size: .83rem;
+}
+
+.stat div {
+  background-color: rgb(255, 0, 0);
+  border-radius: 50%;
+  height: 28px;
+  width: 28px;
+  color: white;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  margin: 0 auto;
+}
+.stats .hp {
+  color: #ac0209;
+  background-color: #feaeb1;
+}
+.stats .atk {
+  color: #395c35;
+  background-color: #c8e1c6;
+}
+.stats .mp  {
+  color: #5a4a86;
+  background-color: #d1cae2;
+}
+.stats .rng {
+  color: #2e3735;
+  background-color: #ced0e7;
+}
+.stats .ar {
+  color: #dc9a37;
+  background-color: #f9ddb4;
+}
+.stats .ms {
+  color: #070e60;
+  background-color: #c6cbfa;
+}.stat p{
+  color: #292d3f;
+}
