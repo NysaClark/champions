@@ -29,7 +29,7 @@ body {
 }
 
 .right {
-  width: 25%;
+  min-width: 370px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -60,6 +60,39 @@ body {
 .loading.closed {
   top: -100vh;
 }
+
+/* BACK TO TOP BUTTON */
+.backToTop button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0px 10px 20px #adadad7b;
+  padding: 0.5rem 0.8rem;
+  border: 2px #ffffff solid;
+  transition: all 0.4s ease;
+  z-index: 99;
+}
+
+.backToTop.hidden button {
+display: none;
+}
+
+.backToTop button svg {
+  width: 25px;
+  height: 25px;
+  color: black;
+  transform: scale(1.15);
+}
+
+.backToTop:hover button {
+  border: 2px #adadad7b solid;
+  cursor: pointer;
+}
+
 
 /* SEARCH */
 .searchBar {
@@ -123,6 +156,7 @@ body {
   justify-content: space-evenly;
   margin: 4rem 0;
   row-gap: 4rem;
+  column-gap: 1rem;
 }
 
 .champion {
@@ -136,7 +170,6 @@ body {
   font-weight: bold;
 
   border: 2px #ffffff solid;
-  /* padding: .5rem; */
   min-width: 250px;
 
   transition: all 0.4s ease;
@@ -292,8 +325,7 @@ body {
   color: #636363;
 }
 
-
-.ratings{
+.ratings {
   padding: 0.5rem 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -301,27 +333,25 @@ body {
   width: 100%;
 }
 
-.ratings h5{
-font-size: 1rem;
-color: #292d3f;
+.ratings h5 {
+  font-size: 1rem;
+  color: #292d3f;
 }
 
-.ratings p{
+.ratings p {
   background-color: #f0f3f9;
   border-radius: 20px;
-  padding-top: .3rem;
-  padding-bottom: .3rem;
-  margin: .5rem .2rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  margin: 0.5rem 0.2rem;
 }
-
-
 
 .stats {
   display: grid;
   width: 90%;
   grid-template-columns: repeat(6, 1fr);
   margin: 0 auto;
-  padding: .5rem;
+  padding: 0.5rem;
   gap: 5px;
 }
 
@@ -330,13 +360,13 @@ color: #292d3f;
   display: flex;
   justify-content: space-between;
   align-self: center;
-  padding:6px 5px 8px;
+  padding: 6px 5px 8px;
   border-radius: 30px;
   flex-direction: column;
   height: 70px;
   font-weight: bolder;
   text-align: center;
-  font-size: .83rem;
+  font-size: 0.83rem;
 }
 
 .stat div {
@@ -360,7 +390,7 @@ color: #292d3f;
   color: #395c35;
   background-color: #c8e1c6;
 }
-.stats .mp  {
+.stats .mp {
   color: #5a4a86;
   background-color: #d1cae2;
 }
@@ -375,6 +405,7 @@ color: #292d3f;
 .stats .ms {
   color: #070e60;
   background-color: #c6cbfa;
-}.stat p{
+}
+.stat p {
   color: #292d3f;
 }

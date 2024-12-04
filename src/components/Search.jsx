@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Search = () => {
+const Search = ({ setPage, setSearchField }) => {
+  // TODO add Enter btn functionality
+  const [searchText, setSearchText] = useState("");
+
+  const handleChange = (e) => {
+    setSearchText(e.target.value);
+  };
+
   return (
     <div className="searchBar">
-      <input type="text" placeholder="Search for a Champion" />
-      <div className="search">
+      <input
+        type="text"
+        onChange={(e) => handleChange(e)}
+        placeholder="Search a Champion or Champion Class"
+      />
+      <div
+        className="search"
+        onClick={() => {
+          setSearchField(searchText);
+          setPage(1);
+        }}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"

@@ -2,7 +2,6 @@ import React from "react";
 import classNames from "classnames";
 
 const Details = ({ showDetails, delay, selectChampion }) => {
-  console.log(selectChampion);
   let shortenedBlurb = `${selectChampion.blurb.split(".")[0]}.`;
 
   return (
@@ -86,13 +85,5 @@ const Details = ({ showDetails, delay, selectChampion }) => {
     </>
   );
 };
-
-
-  // info: {
-  //   attack: 8,
-  //   defense: 3,
-  //   magic: 6,
-  //   difficulty: 6
-  // }
 
 export default Details;
