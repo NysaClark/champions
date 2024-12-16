@@ -125,7 +125,7 @@ function App() {
         </div>
         <div className="right">
           <DetailsPreview showPreview={showPreview} />
-          <Details selectChampion={selectChampion} showDetails={showDetails} delay={delay} />
+          <Details selectChampion={selectChampion} showDetails={showDetails} setShowDetails={setShowDetails} delay={delay} />
           <BackToTop showBackToTop={showBackToTop} />
         </div>
       </div>

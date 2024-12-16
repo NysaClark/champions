@@ -8,19 +8,29 @@ const Search = ({ setPage, setSearchField }) => {
     setSearchText(e.target.value);
   };
 
+  const handleKeyPress = (e) => {
+    if(e.key === 'Enter'){
+      // alert('enter press here! ')
+      setSearchField(searchText);
+      setPage(1);
+    }
+  }
+
   return (
     <div className="searchBar">
       <input
         type="text"
         onChange={(e) => handleChange(e)}
-        placeholder="Search a Champion or Champion Class"
+        onKeyDown={(e) => handleKeyPress(e)}
+        // TODO Show just search on smaller screens max-width 768px (tablet)
+        placeholder="Search a Champion or Class"
       />
       <div
         className="search"
         onClick={() => {
           setSearchField(searchText);
           setPage(1);
-        }}
+        }}n
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
