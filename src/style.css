@@ -507,6 +507,8 @@ body {
   .details {
     height: 100vh;
     padding: 1rem 0.5rem;
+    justify-content: end;
+    padding-bottom: 2rem;
   }
 
   .details .icon {
